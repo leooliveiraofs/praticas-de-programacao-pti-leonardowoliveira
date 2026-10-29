@@ -8,24 +8,24 @@ class CadastroProduto:
 
     ### Verifica as regras de negócio do produto
     def validarDados(self, produto) -> bool:
-        if produto["codigo"] == "":
+        if produto['codigo'] == "":
             print("O código do produto não foi informado.")
             return False
 
-        if produto["nome"] == "":
+        if produto['nome'] == "":
             print("O nome do produto não foi informado.")
             return False
 
-        if produto["preco"] <= 0:
+        if produto['preco'] <= 0:
             print("O preço do produto não pode ser zero ou negativo.")
             return False
 
-        if produto["quantidade"] < 0:
+        if produto['quantidade'] < 0:
             print("A quantidade do produto não pode ser negativa.")
             return False
 
         for item in self.listaProdutos:
-            if item["codigo"] == produto["codigo"]:
+            if item['codigo'] == produto['codigo']:
                 print("Já existe um produto com esse código.")
                 return False
             else:
@@ -49,7 +49,7 @@ class CadastroProduto:
         print("\nInforme a quantidade do produto:")
         quantidade = int(input())
 
-        return {"codigo": codigo, "nome": nome, "preco": preco, "quantidade": quantidade}
+        return {'codigo': codigo, 'nome': nome, 'preco': preco, 'quantidade': quantidade}
 
     ### Executa as ações para criar o produto
     def executarAcao(self) -> None:
@@ -70,7 +70,11 @@ class CadastroProduto:
 
         for produto in self.listaProdutos:
             print("\n---------------------------------------------------------")
-            print(f"Nome: {produto["nome"]}\nCodigo: {produto["codigo"]}\nPreço: {locale.currency(produto["preco"])}\nQuantidade: {produto["quantidade"]}")
+            print(f""
+                  f"Nome: {produto['nome']}"
+                  f"\nCodigo: {produto['codigo']}"
+                  f"\nPreço: {locale.currency(produto['preco'])}"
+                  f"\nQuantidade: {produto['quantidade']}")
             print("---------------------------------------------------------")
 
         print("")
