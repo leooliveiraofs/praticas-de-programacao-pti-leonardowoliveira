@@ -12,6 +12,6 @@ class CalculadorDeEstoque:
         quantidade: int = 0
 
         for produto in self.listaProdutos:
-            quantidade += produto["quantidade"]
+            quantidade += produto['quantidade']
 
         print(f"\nQuantidade de produtos no estoque: {quantidade}")
